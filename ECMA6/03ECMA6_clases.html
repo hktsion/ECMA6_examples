@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ECMA6 -Clases</title>
+</head>
+<body>
+	<main></main>
+	<script>
+
+		class Libro{
+			constructor(params){
+				this.tapa = params[0];
+				this.paginas = params[1];
+			}
+			getPaginas(){
+				return this.paginas;
+			}
+		}
+
+		class Enciclopedia extends Libro{
+			constructor(params, tematica){
+				super(params);
+				this.tematica = tematica;
+			}
+			getTematica(){
+				return this.tematica;
+			};
+		}
+
+
+		let caracteristicas = ['dura', 250];
+		let libro = new Libro(caracteristicas);
+		console.log(libro);
+
+		let enciclopedia = new Enciclopedia(caracteristicas, 'Guinnes de los Records 2018');
+		console.log(enciclopedia.getPaginas());
+
+
+	
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ECMA6 - Arrow 1</title>
+</head>
+<body>
+	<script>
+
+		let data = [
+			{'id': 1, 'dispositivo':'Samsung', 'ip':'92.232.121.101'},
+			{'id': 2, 'dispositivo':'AMD', 'ip':'92.232.121.102'},
+			{'id': 3, 'dispositivo':'HP', 'ip':'92.232.121.103'},
+			{'id': 4, 'dispositivo':'Nokia', 'ip':'92.232.121.104'},
+			{'id': 5, 'dispositivo':'MAC', 'ip':'92.232.121.105'}
+		];
+
+
+		//ECMA5
+		console.log(' E C M A 5');
+		data.forEach(function(elem, index, me){
+			console.log(index);
+			console.log(elem);
+			console.log(me[index]);
+		});
+
+		console.log('____________________________________\n');
+
+
+		//ECMA6
+		console.log(' E C M A 6');
+		data.forEach( elem => {
+			console.log(elem);
+		});
+
+	</script>
+</body>
+</html>

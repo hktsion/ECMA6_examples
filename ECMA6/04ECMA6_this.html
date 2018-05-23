@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ECMA6 -This</title>
+	<style>
+	p{
+		display:flex; justify-content:center; align-items:center;padding: 10px; width: 50px; height: 50px; border:2px solid #212121; border-radius: 10px; background: crimson; color: #ffffff;
+	}
+</style>
+</head>
+<body>
+	<main>
+		<p>_1</p>
+		<p>_2</p>
+		<p>_3</p>
+	</main>
+	<script>
+
+		// E C M A 5 
+		let ecma5_unbind = {
+			saludo: 'hola!',
+			clic: function(){
+				//var that = this; //pasa lareferencia a la función
+				document.addEventListener('click', function(e){
+					console.log(this);  		//ref#documento
+					console.log(e.target);		//ref#evento
+				}, true);
+			}
+		}
+
+
+		// E C M A 5 
+		let ecma5_that = {
+			saludo: 'hola!',
+			clic: function(){
+				var that = this; 
+				document.addEventListener('click', function(e){
+					console.log(that);  		//ref#documento
+					console.log(e.target);		//ref#evento
+				}, true);
+			}
+		}
+
+		// E C M A 5   c o n   B I N D 
+		let ecma5_bind = {
+			saludo: 'hola!',
+			clic: function(){
+				document.addEventListener('click', function(e){
+					console.log(this);  
+					console.log(e.target);
+				}.bind(this), true);
+			}
+		}
+
+
+		// E C M A 6
+		let ecma6 = {
+			saludo: 'hola!',
+			clic: function(){
+				document.addEventListener('click', (e)=>{
+					console.log(this.saludo.slice(0,-1)+' desde ECMA6'+this.saludo.slice(-1));
+					console.log(e.target);
+				}, true);
+			}
+		}
+
+		//OUTPUTS
+		//ecma5_unbind.clic();
+		//ecma5_that.clic();
+		//ecma5_bind.clic();
+		ecma6.clic();
+
+
+
+
+	</script>
+</body>
+</html>
