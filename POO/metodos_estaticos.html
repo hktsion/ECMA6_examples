@@ -8,7 +8,7 @@
 	<script>
 		'use strict';
 		//Son métodos que se asocian directamente a la clase (no a las instancias) y son accesibles sin crear un objeto.
-		//Generalmente realizan acciones atómicas.
+		//Generalmente realizan acciones atómicas (no guardan valores)
 
 		//Constructor
 		function ConversorGR(){ }
@@ -18,8 +18,8 @@
 		ConversorGR.RADIANES_A_GRADOS = 180/Math.PI;
 
 		//métodos estáticos
-		ConversorGR.aRadianes = (grados)=>{  return (grados*ConversorGR.GRADOS_A_RADIANES).toFixed(2); }
-		ConversorGR.aGrados = (radianes)=>{return radianes*ConversorGR.RADIANES_A_GRADOS; }
+		ConversorGR.aRadianes = (grados)=>{ return (grados*ConversorGR.GRADOS_A_RADIANES).toFixed(2); }
+		ConversorGR.aGrados = (radianes)=>{ return radianes*ConversorGR.RADIANES_A_GRADOS; }
 
 
 		console.log('200º son ' + ConversorGR.aRadianes(200) + ' rad');
