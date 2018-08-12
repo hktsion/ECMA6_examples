@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Estáticas</title>
+</head>
+<body>
+	<script>
+		//Son propiedades que se asignan a las clases y no a las instancias.
+		//Dependen de la clase y no están disponibles en el prototipo de la instancia para acceder a ellas.
+		//USO: Normalmente para valores que dependen de la clase y no de la instancia y además muchas veces son inmutables.
+		//OBJETIVO: Tener ese valor disponible en cualquier parte de la aplicación.
+		//EJEMPLO: Propiedad PI de la clase Math que alberga un valor inmutable.
+
+		function ConversorGR(){
+			this.GRADOS_A_RADIANES = Math.PI/180;
+			this.RADIANES_A_GRADOS = 180/Math.PI;
+		}
+
+		let CGR = new ConversorGR();
+
+		console.log('200º son ' + 200*CGR.GRADOS_A_RADIANES + ' rad');
+		console.log('PI radianes son ' + Math.PI*CGR.RADIANES_A_GRADOS + 'º');
+
+		//-------------------------------------------------------------------------------
+
+		function conversorCK(){}
+		conversorCK.CELSIUS_A_KELVIN = 272.15;
+		conversorCK.KELVIN_A_CELSIUS = -272.15;
+
+		console.log('30ºC son ' + (30+conversorCK.CELSIUS_A_KELVIN) + ' kelvin');
+		console.log('273kelvin son ' + (273+conversorCK.KELVIN_A_CELSIUS) + 'ºC');
+
+
+	</script>
+</body>
+</html>
