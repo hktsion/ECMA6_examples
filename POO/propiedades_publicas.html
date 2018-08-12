@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Propiedades públicas</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		//Son propiedades de las clases que pueden ser accesibles a través de las instancias, e incluso pueden ser modificadas.
+		//Se realiza a artir de la palabra reservada 'this'.
+
+	class Persona{
+		//Cada instancia gestiona sus atributos.
+		//Se reserva memoria por cada instancia.	
+		constructor(nm, ml){
+			this.nombre = nm;
+			this.email = ml;
+		}
+	}
+
+	let persona1 = new Persona('Héctor', 'hectorochoa.bellon@gmail.com');
+	console.log(persona1);
+
+	let persona2 = new Persona('Pepe Cadenas', 'pepecadenas@gmail.com');
+	console.log(persona2);
+
+
+
+	</script>
+</body>
+</html>
