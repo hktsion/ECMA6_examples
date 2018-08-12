@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos estáticos</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		//Son métodos que se asocian directamente a la clase (no a las instancias) y son accesibles sin crear un objeto.
+		//Generalmente realizan acciones atómicas.
+
+		//Constructor
+		function ConversorGR(){ }
+
+		//propiedades estáticas
+		ConversorGR.GRADOS_A_RADIANES = Math.PI/180;
+		ConversorGR.RADIANES_A_GRADOS = 180/Math.PI;
+
+		//métodos estáticos
+		ConversorGR.aRadianes = (grados)=>{  return (grados*ConversorGR.GRADOS_A_RADIANES).toFixed(2); }
+		ConversorGR.aGrados = (radianes)=>{return radianes*ConversorGR.RADIANES_A_GRADOS; }
+
+
+		console.log('200º son ' + ConversorGR.aRadianes(200) + ' rad');
+		console.log('PI radianes son ' +ConversorGR.aGrados(Math.PI) + 'º');
+
+
+
+
+
+	</script>
+</body>
+</html>
