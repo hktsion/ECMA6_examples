@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Métodos públicos</title>
+</head>
+<body>
+	<script>
+		'use strict';
+
+		//Constructor
+		function Guitar(marca, cuerdas, pastillas){ 
+			this.marca = marca;
+			this.cuerdas = cuerdas;
+			this.pastillas = pastillas;
+		}
+
+		//Creamos un método en el prototipo de Guitar de forma que todas las instancias comparten este método
+		Guitar.prototype.tocarNota = (g, nota)=>{
+			console.log('Tocando un ' + g.cuerdas[nota] + ' en mi guitarra ' + g.marca);
+		};
+
+		let notas = {'Mi':'E','La':'A','Re':'D','Sol':'G','Si':'B','mi':'e'};
+
+		let gibson = new Guitar('Gibson', notas, 2);
+		gibson.tocarNota(gibson, 'Re');
+
+		let fender = new Guitar('Fender', notas, 3);
+		fender.tocarNota(fender, 'Sol');
+
+	</script>
+</body>
+</html>
