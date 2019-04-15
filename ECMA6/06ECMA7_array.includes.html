@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array.includes</title>
+</head>
+<body>
+    <script>
+        //Array includes => indica si un elemento s encuntra dentro de un array
+        "use strict";
+
+        let miArray = new Array("gato", "perro", "canario");
+
+        //ECMA7
+        let existeCanario = miArray.includes("canario"); //true
+        let existeNaN = miArray.includes( NaN ); //false
+        console.log( existeCanario );
+        console.log( existeNaN );
+
+    </script>
+</body>
+</html>
