@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Async</title>
+</head>
+<body>
+    <script>
+        /**
+        * Esta característica está basada en el uso de promesas.
+        * Las promesas permiten ejecutar tareas asíncronas, además 
+        * permiten tratar el resultado en caso sucess y error.
+        **/
+
+        const respuestas = [
+            "Claro!", "Lograrás todo lo que te propongas!",
+            "Arriésgate", "No es una buena idea", "Quítate esa idea de la cabeza",
+            "Prueba, y si no lo consigues, inténtalo otra vez", "Rotundamente no!",
+            "¿Crees que es una buena idea?", "¿Has revisado los cambios?"
+        ];
+
+        /**
+        * Cuando trabajamos con APIS, puede ser que las llamadas 
+        * tarden tiempo en ejecutarse, con lo que necesitamos que
+        * esas llamadas seana asíncronas, de forma que podamos seguir
+        * corriendo nuestro código y despreocuparnos de estas llamadas.
+        * De esta forma nuestra aplicación no queda bloqueada.
+        **/
+        function bola8( pregunta ){
+            /** 
+            * Una promesa recibe una función anónima con 2 parámetros
+            * resolve :: se ocupa cuando se obtiene un resultado ok;
+            * reject  :: se ocupa cuand se obtiene un resultado ko;
+            */
+            return new Promise( (resolve, reject)=>{
+                //Simulamos una situación de error
+                if( !pregunta){
+                    reject( 'Debes hacer una pregunta' );
+                }
+
+                //Simulamos un delay de la respuesta ( por ejemplo del servidor)
+                setTimeout( () => 
+                    resolve( 
+                        "Pregunta: " + pregunta + "\n" +
+                        "Respuesta: " + respuestas[ Math.floor( Math.random() * ( (respuestas.length-1) + 1)) ]
+                ), 3000);
+            });
+        }
+
+        //usamos <then> para obtener el resultado de la promesa;
+        bola8( "¿Subo los cambios a GitHub?" ).then( resultado => console.log(resultado) );
+    </script>
+</body>
+</html>
