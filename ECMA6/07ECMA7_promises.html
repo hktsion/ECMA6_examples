@@ -50,7 +50,28 @@
         }
 
         //usamos <then> para obtener el resultado de la promesa;
-        bola8( "¿Subo los cambios a GitHub?" ).then( resultado => console.log(resultado) );
+        bola8( "¿Subo los cambios a GitHub?" )
+            .then( (res1) => {
+                console.log(res1);
+                //bola8 devuleve una nueva promesa, por eso podemos volver a encadenar con "then"
+                 return bola8("¿Y si estudio más javascript")
+            })
+            .then( 
+                (res2) => { 
+                    console.log(res2);
+                    //Una promise es similar a un callback pero no causa
+                    //lo que se conoce como "callback Hell"
+                    return bola8("¿Y si no meto meto argumentos en la siguiente Promise?");
+            })
+            .then( 
+                ( res3 ) => {
+                    console.log( res3 );
+                    //Probamos el error (cuando no pasamos ningna pregunta)
+                    return bola8( )
+                }
+            )
+            .then( res4 => console.log( res4 ) )
+            .catch( err => console.log( "Con catch controlamos el error: " + err ) )
     </script>
 </body>
 </html>
